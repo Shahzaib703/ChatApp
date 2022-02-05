@@ -71,7 +71,7 @@ const Register = () => {
               }
             );
             
-            navigate("/");
+            navigate("/ChatApp");
           } catch (err) {
             setData({ ...data, error: err.message, loading: false });
           }

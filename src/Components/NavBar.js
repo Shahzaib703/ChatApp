@@ -25,7 +25,7 @@ const NavBar = () => {
   return (
     <nav>
       <h3>
-        <Link to="/">Massages</Link>
+        <Link to="/ChatApp">Massages</Link>
       </h3>
       <div>
         {user ? (

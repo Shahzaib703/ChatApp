@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <NavBar/>
       <Routes>
-          <Route exact path="/" element={<Chats />} />
+          <Route exact path="/ChatApp" element={<Chats />} />
           <Route exact path="/Profile" element={<Profile />} />
           <Route exact path="/login" element={<Singin />} />
           <Route exact path="/register" element={<Register />} />
