@@ -30,7 +30,7 @@ const Chats = () => {
 
   return (
     <>
-      <div className="AllUsersBox">
+    {user?<><div className="AllUsersBox">
         <AllUsers showChat={showChat} />
       </div>
       <div className="Chats">
@@ -38,7 +38,8 @@ const Chats = () => {
         {NewUid ? 
         <MassageBox NewUid={NewUid} />
         : null}
-      </div>
+      </div></>:<h2 style={{color:"white", textAlign:"center", marginTop:"20px"}}>You Need To Login</h2>}
+      
     </>
   );
 };
