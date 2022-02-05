@@ -31,8 +31,8 @@ const AllUsers = ({ showChat }) => {
 };
 
 function UsersRow({ Uid }) {
-  const [Image, setImage] = useState("");
-  const [Name, setName] = useState("");  
+  const [Image, setImage] = useState("/user_icon.jpg");
+  const [Name, setName] = useState("UserName");  
   const [isOnline, setOnline] = useState(false);
 
 
@@ -71,6 +71,7 @@ function UsersRow({ Uid }) {
         src={Image}
         alt="Avatar"
       />
+      
       {isOnline ? <div className="OnlineIndicator"></div> : null}
       <h5 className="userName whiteClass">{Name}</h5>
     </div>
