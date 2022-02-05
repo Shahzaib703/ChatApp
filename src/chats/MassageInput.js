@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React from "react";
 import { auth } from "../firebase";
 
 import {
@@ -11,7 +11,7 @@ import {
 } from "firebase/database";
 
 const MassageInput = ({ data }) => {
-  const [Text, setText] = useState("");
+  const [Text, setText] = React.useState("");
   let MyUid = auth.currentUser.uid;
   const db = getDatabase();
 

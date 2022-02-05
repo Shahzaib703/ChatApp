@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import MassageRowLeft from "./MassageRowLeft";
 import MassageRowRight from "./MassageRowRight";
 import MassageInput from "./MassageInput";
@@ -18,11 +18,11 @@ import {
 
 const MassageBox = ({ NewUid }) => {
   const db = getDatabase();
-  const dummy = useRef();
+  const dummy = React.useRef();
 
-  const [Massages, setMassages] = useState([]);
+  const [Massages, setMassages] = React.useState([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const reference = ref(db, `Massages/${auth.currentUser.uid}/${NewUid}`);
 
     function change(snapshot) {
@@ -50,7 +50,7 @@ const MassageBox = ({ NewUid }) => {
     };
   }, [Massages]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setMassages([]);
     const reference = ref(db, `Massages/${auth.currentUser.uid}/${NewUid}`);
 
@@ -149,12 +149,12 @@ const MassageBox = ({ NewUid }) => {
 };
 
 function ProfileRow({ Uid }) {
-  const [Image, setImage] = useState("");
-  const [Name, setName] = useState("");
-  const [Status, setStatus] = useState("Offline");
+  const [Image, setImage] = React.useState("");
+  const [Name, setName] = React.useState("");
+  const [Status, setStatus] = React.useState("Offline");
   const db = getDatabase();
 
-  useEffect(() => {
+  React.useEffect(() => {
     onValue(ref(db, `/Users/${Uid}`), (snapshot) => {
       let photo = snapshot.child("Profile").val();
       let username = snapshot.child("username").val();

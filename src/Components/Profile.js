@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { auth } from "../firebase";
 import {
@@ -11,12 +11,12 @@ import {
 
 const Profile = () => {
   const inputFileRef = React.useRef();
-  const [Image, setImage] = useState("");
-  const [Name, setName] = useState("");
+  const [Image, setImage] = React.useState("");
+  const [Name, setName] = React.useState("");
 
   const db = getDatabase();
 
-  useEffect(() => {
+  React.useEffect(() => {
     onValue(dbref(db, `/Users/${auth.currentUser.uid}`), (snapshot) => {
       let photo = snapshot.child("Profile").val();
       let username = snapshot.child("username").val();

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { AuthContext } from "../context/auth";
 import {auth} from '../firebase'
 import { onDisconnect,ref,getDatabase,update } from "firebase/database";
@@ -7,7 +6,7 @@ import { onDisconnect,ref,getDatabase,update } from "firebase/database";
 
 
 const NavBar = () => {
-  const {user} = useContext(AuthContext);
+  const {user} = React.useContext(AuthContext);
 
   const singOut =(e)=>{
     e.preventDefault();

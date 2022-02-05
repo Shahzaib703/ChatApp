@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ChatRow from "./ChatRow";
 import {
   getDatabase,
@@ -10,11 +10,11 @@ import {
 } from "firebase/database";
 import { auth } from "../firebase";
 const ChatsBox = ({ showChat }) => {
-  const [Chats, setChats] = useState([]);
+  const [Chats, setChats] = React.useState([]);
 
   const db = getDatabase();
 
-  useEffect(() => {
+  React.useEffect(() => {
     if(!auth.currentUser.uid){
       return
     }
@@ -53,7 +53,7 @@ const ChatsBox = ({ showChat }) => {
     };
   }, [Chats]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     let reference = ref(db, `Chats/${auth.currentUser.uid}`);
 
     function add(snapshot) {

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { onValue, ref, getDatabase, off } from "firebase/database";
 import { auth } from "../firebase";
 
 const AllUsers = ({ showChat }) => {
-  const [AllUsers, setAllUsers] = useState([]);
-  useEffect(() => {
+  const [AllUsers, setAllUsers] = React.useState([]);
+  React.useEffect(() => {
     const db = getDatabase();
     onValue(ref(db, "/AllUsers"), (snapshot) => {
       let array = [];
@@ -31,12 +31,12 @@ const AllUsers = ({ showChat }) => {
 };
 
 function UsersRow({ Uid }) {
-  const [Image, setImage] = useState("/user_icon.jpg");
-  const [Name, setName] = useState("UserName");  
-  const [isOnline, setOnline] = useState(false);
+  const [Image, setImage] = React.useState("/user_icon.jpg");
+  const [Name, setName] = React.useState("UserName");  
+  const [isOnline, setOnline] = React.useState(false);
 
 
-  useEffect(() => {
+  React.useEffect(() => {
     let db = getDatabase();
     onValue(ref(db, `/Users/${Uid}`), (snapShot) => {
       let Photo = snapShot.child("Profile").val();

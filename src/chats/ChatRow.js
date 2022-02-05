@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { getDatabase, ref, onValue, get,child, remove, off } from "firebase/database";
 import { auth } from "../firebase";
 
 const ChatRow = (props) => {
-  const [S_Img, setImage] = useState(null);
+  const [S_Img, setImage] = React.useState(null);
 
-  const [S_Name, setName] = useState(null);
+  const [S_Name, setName] = React.useState(null);
 
-  const [S_LastMsg, setLastMsg] = useState(null);
+  const [S_LastMsg, setLastMsg] = React.useState(null);
 
-  const [S_Time, setTime] = useState(null);
+  const [S_Time, setTime] = React.useState(null);
 
-  const [isOnline, setOnline] = useState(false);
+  const [isOnline, setOnline] = React.useState(false);
 
   
   const { LastMsg, MsgType, time, Uid } = props.data;
 
   const db = getDatabase();
 
-  useEffect(() => {
+  React.useEffect(() => {
     onValue(ref(db, `Users/${Uid}`), (snapshot) => {
       let name =snapshot.child("username").val();
       let status = snapshot.child("status").val();

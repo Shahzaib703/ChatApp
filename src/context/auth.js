@@ -1,15 +1,15 @@
-import { createContext, useEffect, useState } from "react";
+import React from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import Loading from "../Components/Loading";
 
-export const AuthContext = createContext();
+export const AuthContext = React.createContext();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
 
-  useEffect(() => {
+  React.useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);

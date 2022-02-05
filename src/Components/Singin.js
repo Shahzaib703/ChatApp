@@ -1,16 +1,12 @@
-import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-
-import { getDatabase, onDisconnect,ref, set, update } from "firebase/database";
-
 import { useNavigate } from "react-router-dom";
 
 const Singin = () => {
   
   const navigate = useNavigate();
   
-  const [data, setData] = useState({
+  const [data, setData] = React.useState({
     email: "",
     password: "",
     error: null,

@@ -1,19 +1,17 @@
-import React, { useMemo } from "react";
+import React from "react";
 import ChatsBox from "../chats/chatsBox";
 import MassageBox from "../chats/MassageBox";
 import AllUsers from "./AllUsers";
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth";
 import { getDatabase, onDisconnect, ref, set, update } from "firebase/database";
 import { auth } from "../firebase";
 
 const Chats = () => {
-  const [NewUid, setNewUid] = useState(null);
+  const [NewUid, setNewUid] = React.useState(null);
 
   const { user } = useContext(AuthContext);
-  useEffect(() => {
+  React.useEffect(() => {
     if (user) {
       update(ref(getDatabase(), `/Users/${auth.currentUser.uid}/`), {
         status: "Online",

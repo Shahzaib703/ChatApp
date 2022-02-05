@@ -1,13 +1,12 @@
 import { getDatabase, off, onValue, ref } from "firebase/database";
 import React from "react";
-import { useEffect, useState } from "react/cjs/react.development";
 
 const MassageRowLeft = ({ data }) => {
   const { From, MsgType, Seen, Send, TextMSG, time } = data;
 
-  const [Profile, setProfile] = useState("");
+  const [Profile, setProfile] = React.useState("");
 
-  useEffect(() => {
+  React.useEffect(() => {
     const db = getDatabase();
     onValue(ref(db, `/Users/${From}/Profile`), (snapshot) => {
       let photo = snapshot.val();

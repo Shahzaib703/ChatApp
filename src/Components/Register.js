@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { getDatabase, onDisconnect,ref, set, child,get } from "firebase/database";
 
 const Register = () => {
-  const [data, setData] = useState({
+  const [data, setData] = React.useState({
     username: "",
     email: "",
     password: "",
