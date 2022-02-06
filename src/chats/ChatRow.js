@@ -31,9 +31,10 @@ const ChatRow = (props) => {
       } else {
         setOnline(false);
       }
-
+      var icon = "https://firebasestorage.googleapis.com/v0/b/massagingapp-4fa3c.appspot.com/o/user_icon.jpg?alt=media&token=bcd8233d-66e9-45e2-bd63-b34bc1b006cd";
+      
       if (profile === "" || profile === null) {
-        setImage("/user_icon.jpg");
+        setImage(icon);
       } else {
         setImage(profile);
       }

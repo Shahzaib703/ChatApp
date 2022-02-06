@@ -10,10 +10,12 @@ const MassageRowLeft = ({ data }) => {
     const db = getDatabase();
     onValue(ref(db, `/Users/${From}/Profile`), (snapshot) => {
       let photo = snapshot.val();
+      var icon = "https://firebasestorage.googleapis.com/v0/b/massagingapp-4fa3c.appspot.com/o/user_icon.jpg?alt=media&token=bcd8233d-66e9-45e2-bd63-b34bc1b006cd";
+      
       if (photo !== "") {
         setProfile(photo);
       } else {
-        setProfile("/user_icon.jpg");
+        setProfile(icon);
       }
     });
 

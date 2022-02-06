@@ -41,13 +41,16 @@ function UsersRow({ Uid }) {
     onValue(ref(db, `/Users/${Uid}`), (snapShot) => {
       let Photo = snapShot.child("Profile").val();
       let name = snapShot.child("username").val();
+      
       let status = snapShot.child("status").val();
       setName(name);
+      var icon = "https://firebasestorage.googleapis.com/v0/b/massagingapp-4fa3c.appspot.com/o/user_icon.jpg?alt=media&token=bcd8233d-66e9-45e2-bd63-b34bc1b006cd";
       
       if (Photo !== "") {
         setImage(Photo);
       } else {
-        setImage("/user_icon.jpg");
+
+        setImage(icon);
       }
       if (status === "Online") {
         setOnline(true);
