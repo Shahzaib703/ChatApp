@@ -3,7 +3,7 @@ import { getDatabase, ref, onValue, get,child, remove, off } from "firebase/data
 import { auth } from "../firebase";
 
 const ChatRow = (props) => {
-  const [S_Img, setImage] = React.useState(null);
+  const [S_Img, setImage] = React.useState("https://firebasestorage.googleapis.com/v0/b/massagingapp-4fa3c.appspot.com/o/user_icon.jpg?alt=media&token=bcd8233d-66e9-45e2-bd63-b34bc1b006cd");
 
   const [S_Name, setName] = React.useState(null);
 
