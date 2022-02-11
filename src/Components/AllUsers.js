@@ -41,7 +41,7 @@ const AllUsers = ({ showChat }) => {
 
 function UsersRow({ Uid }) {
   const [Image, setImage] = React.useState("");
-  const [Name, setName] = React.useState("UserName");
+  const [Name, setName] = React.useState("");
   const [isOnline, setOnline] = React.useState(false);
 
   React.useEffect(() => {
@@ -64,7 +64,7 @@ function UsersRow({ Uid }) {
     return () => {
       off(ref(db, `/Users/${Uid}`));
     };
-  }, []);
+  }, [Uid]);
 
   return (
     <div className="UserContainer">
