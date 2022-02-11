@@ -163,8 +163,9 @@ function ProfileRow({ Uid }) {
       setStatus(status);
 
       setName(username);
-      var icon = "https://firebasestorage.googleapis.com/v0/b/massagingapp-4fa3c.appspot.com/o/user_icon.jpg?alt=media&token=bcd8233d-66e9-45e2-bd63-b34bc1b006cd";
-      
+      var icon =
+        "https://firebasestorage.googleapis.com/v0/b/massagingapp-4fa3c.appspot.com/o/user_icon.jpg?alt=media&token=bcd8233d-66e9-45e2-bd63-b34bc1b006cd";
+
       if (photo !== "") {
         setImage(photo);
       } else {
@@ -175,7 +176,7 @@ function ProfileRow({ Uid }) {
     return () => {
       off(ref(db, `/Users/${Uid}`));
     };
-  }, []);
+  }, [Uid]);
 
   return (
     <div

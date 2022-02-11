@@ -28,16 +28,43 @@ const Chats = () => {
 
   return (
     <>
-    {user?<><div className="AllUsersBox">
-        <AllUsers showChat={showChat} />
-      </div>
-      <div className="Chats">
-        <ChatsBox showChat={showChat} />
-        {NewUid ? 
-        <MassageBox NewUid={NewUid} />
-        : null}
-      </div></>:<h2 style={{color:"white", textAlign:"center", marginTop:"20px"}}>You Need To Login</h2>}
-      
+      {user ? (
+        <>
+          <div className="AllUsersBox">
+            <AllUsers showChat={showChat} />
+          </div>
+          <div className="Chats">
+            <ChatsBox showChat={showChat} />
+            {NewUid ? (
+              <MassageBox NewUid={NewUid} />
+            ) : (
+              <div
+                style={{
+                  width: 400,
+                  height: 400,
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  marginTop: "auto",
+                }}
+              >
+                <h3
+                  style={{
+                    color: "white",
+                    textAlign: "center",
+                  }}
+                >
+                  Wellcome To Chat App
+                </h3>
+                <p style={{ textAlign: "center" }}>(Created By G.M.Shahzaib)</p>
+              </div>
+            )}
+          </div>
+        </>
+      ) : (
+        <h2 style={{ color: "white", textAlign: "center", marginTop: "20px" }}>
+          You Need To Login
+        </h2>
+      )}
     </>
   );
 };
