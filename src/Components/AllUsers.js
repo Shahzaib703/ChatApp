@@ -9,7 +9,7 @@ const AllUsers = ({ showChat }) => {
     onValue(ref(db, "/AllUsers"), (snapshot) => {
       let array = [];
       snapshot.forEach((snap) => {
-        if(snap.key!==auth.currentUser.uid){
+        if (snap.key !== auth.currentUser.uid) {
           array.push(snap.key);
         }
       });
@@ -24,7 +24,16 @@ const AllUsers = ({ showChat }) => {
   return (
     <div style={{ display: "flex" }}>
       {Array.from(AllUsers).map((key, index) => {
-        return <div style={{cursor:"pointer"}} key={index} onClick={() => showChat(key)}><UsersRow  Uid={key} /></div>;
+        console.log(key);
+        return (
+          <div
+            style={{ cursor: "pointer" }}
+            key={index}
+            onClick={() => showChat(key)}
+          >
+            <UsersRow Uid={key} />
+          </div>
+        );
       })}
     </div>
   );
@@ -32,20 +41,19 @@ const AllUsers = ({ showChat }) => {
 
 function UsersRow({ Uid }) {
   const [Image, setImage] = React.useState("");
-  const [Name, setName] = React.useState("UserName");  
+  const [Name, setName] = React.useState("UserName");
   const [isOnline, setOnline] = React.useState(false);
-
 
   React.useEffect(() => {
     let db = getDatabase();
     onValue(ref(db, `/Users/${Uid}`), (snapShot) => {
       let Photo = snapShot.child("Profile").val();
       let name = snapShot.child("username").val();
-      
+
       let status = snapShot.child("status").val();
       setName(name);
       setImage(Photo);
-      
+
       if (status === "Online") {
         setOnline(true);
       } else {
@@ -68,7 +76,7 @@ function UsersRow({ Uid }) {
         src={Image}
         alt="Avatar"
       />
-      
+
       {isOnline ? <div className="OnlineIndicator"></div> : null}
       <h5 className="userName whiteClass">{Name}</h5>
     </div>
