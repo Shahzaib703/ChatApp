@@ -161,16 +161,8 @@ function ProfileRow({ Uid }) {
 
       let status = snapshot.child("status").val();
       setStatus(status);
-
       setName(username);
-      var icon =
-        "https://firebasestorage.googleapis.com/v0/b/massagingapp-4fa3c.appspot.com/o/user_icon.jpg?alt=media&token=bcd8233d-66e9-45e2-bd63-b34bc1b006cd";
-
-      if (photo !== "") {
-        setImage(photo);
-      } else {
-        setImage(icon);
-      }
+      setImage(photo);
     });
 
     return () => {

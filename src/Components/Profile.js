@@ -22,12 +22,8 @@ const Profile = () => {
       let username = snapshot.child("username").val();
 
       setName(username);
-
-      if (photo !== "") {
-        setImage(photo);
-      } else {
-        setImage("https://firebasestorage.googleapis.com/v0/b/massagingapp-4fa3c.appspot.com/o/user_icon.jpg?alt=media&token=bcd8233d-66e9-45e2-bd63-b34bc1b006cd");
-      }
+      setImage(photo);
+      
     });
 
     return () => {

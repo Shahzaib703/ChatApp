@@ -31,7 +31,7 @@ const AllUsers = ({ showChat }) => {
 };
 
 function UsersRow({ Uid }) {
-  const [Image, setImage] = React.useState("https://firebasestorage.googleapis.com/v0/b/massagingapp-4fa3c.appspot.com/o/user_icon.jpg?alt=media&token=bcd8233d-66e9-45e2-bd63-b34bc1b006cd");
+  const [Image, setImage] = React.useState("");
   const [Name, setName] = React.useState("UserName");  
   const [isOnline, setOnline] = React.useState(false);
 
@@ -44,14 +44,8 @@ function UsersRow({ Uid }) {
       
       let status = snapShot.child("status").val();
       setName(name);
-      var icon = "https://firebasestorage.googleapis.com/v0/b/massagingapp-4fa3c.appspot.com/o/user_icon.jpg?alt=media&token=bcd8233d-66e9-45e2-bd63-b34bc1b006cd";
+      setImage(Photo);
       
-      if (Photo !== "") {
-        setImage(Photo);
-      } else {
-
-        setImage(icon);
-      }
       if (status === "Online") {
         setOnline(true);
       } else {
