@@ -44,7 +44,10 @@ function UsersRow({ Uid }) {
   const [Name, setName] = React.useState("");
   const [isOnline, setOnline] = React.useState(false);
 
+  console.log("UID:" + Uid);
+
   React.useEffect(() => {
+    console.log("UseEffect");
     let db = getDatabase();
     onValue(ref(db, `/Users/${Uid}`), (snapShot) => {
       let Photo = snapShot.child("Profile").val();
